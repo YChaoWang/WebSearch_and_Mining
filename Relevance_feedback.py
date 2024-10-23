@@ -111,11 +111,3 @@ def pseudo_feedback(vector_space, original_query, documents, file_paths):
     else:
         print("No initial results found.")
         return []
-
-
-# Example usage
-# Assuming you have a VectorSpace instance and documents loaded
-# vector_space = VectorSpace(eng_documents, language="english")
-# original_query = "network"
-# re_ranked_results = pseudo_feedback(vector_space, original_query, eng_documents)
-# print(re_ranked_results)
