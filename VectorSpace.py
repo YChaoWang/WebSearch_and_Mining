@@ -9,18 +9,18 @@ import util
 class VectorSpace:
     """A simplified vector space model for document search using TF-IDF."""
 
-    def __init__(self, documents=[]):
+    def __init__(self, documents=[], language="english"):
         self.documentTfVectors = []
         self.documentIdfVectors = []
         self.documentTfIdfVectors = []
         self.vectorKeywordIndex = {}
+        self.language = language  # 新增language屬性
         self.parser = Parser()
         if len(documents) > 0:
             self.build(documents)
 
     def build(self, documents):
         """Create the vector space for the passed document strings"""
-        print("Building vector space...")
         self.vectorKeywordIndex = self.getVectorKeywordIndex(documents)
         print(f"Vocabulary size: {len(self.vectorKeywordIndex)}")
 
@@ -39,21 +39,32 @@ class VectorSpace:
     def getVectorKeywordIndex(self, documentList):
         """Create the keyword to vector index mapping"""
         vocabularyString = " ".join(documentList)
-        vocabularyList = self.parser.tokenise(vocabularyString)
-        vocabularyList = self.parser.removeStopWords(vocabularyList)
-        uniqueVocabularyList = sorted(set(vocabularyList))
 
+        # 根據language屬性選擇分詞方法
+        if self.language == "chinese":
+            vocabularyList = self.parser.chinese_tokenise(vocabularyString)
+        else:  # english
+            vocabularyList = self.parser.tokenise(vocabularyString)
+            vocabularyList = self.parser.removeStopWords(vocabularyList)
+
+        uniqueVocabularyList = sorted(set(vocabularyList))
         vectorIndex = {word: offset for offset, word in enumerate(uniqueVocabularyList)}
         return vectorIndex
 
     def makeTfVector(self, wordString):
         """Create the TF vector for a document"""
         vector = [0] * len(self.vectorKeywordIndex)
-        wordList = self.parser.tokenise(wordString)
-        wordList = self.parser.removeStopWords(wordList)
+
+        # Language detection and tokenization
+        # 根據language屬性選擇分詞方法
+        if self.language == "chinese":
+            wordList = self.parser.chinese_tokenise(wordString)
+        else:  # english
+            wordList = self.parser.tokenise(wordString)
+            wordList = self.parser.removeStopWords(wordList)
 
         for word in wordList:
-            if word in self.vectorKeywordIndex:  # 確保詞在索引中
+            if word in self.vectorKeywordIndex:
                 vector[self.vectorKeywordIndex[word]] += 1
 
         return vector
@@ -63,8 +74,11 @@ class VectorSpace:
         word_doc_count = defaultdict(int)
 
         for document in documents:
-            wordList = self.parser.tokenise(document)
-            wordList = self.parser.removeStopWords(wordList)
+            if self.language == "chinese":
+                wordList = self.parser.chinese_tokenise(document)
+            else:  # english
+                wordList = self.parser.tokenise(document)
+                wordList = self.parser.removeStopWords(wordList)
             uniqueWords = set(wordList)
 
             for word in uniqueWords:
@@ -164,6 +178,7 @@ class VectorSpace:
         )[:10]
 
         for index, score in top_ratings:
+            # print(f"索引: {index}, file_paths 長度: {len(file_paths)}")
             file_name = os.path.basename(file_paths[index])
             print(f"{file_name}  {score:.7f}")
 

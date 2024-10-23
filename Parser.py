@@ -2,6 +2,7 @@
 import re
 from nltk.tokenize import word_tokenize
 from PorterStemmer import PorterStemmer
+import jieba
 
 
 class Parser:
@@ -36,3 +37,22 @@ class Parser:
         return [
             self.stemmer.stem(word, 0, len(word) - 1) for word in words
         ]  # 進行詞幹提取
+
+    def chinese_tokenise(self, text):
+        return list(jieba.cut(text))  # 使用 jieba 進行中文分詞
+
+
+# 測試分詞功能
+# parser = Parser()  # Create an instance of the Parser class
+# sample_text_zh = "我愛編程的方法"
+# sample_text_en = "I love the method of programming"
+# sample_text_en = "Typhoon Taiwan war"
+# sample_text = "Jimmy 玩一個電腦遊戲。"
+# print(
+#     "中文分詞:", parser.segment_text(sample_text_zh)
+# )  # Call the method on the instance
+# print(
+#     "英文分詞:", parser.segment_text(sample_text_en)
+# )  # Call the method on the instance
+# wordlist = parser.tokenise(sample_text_en)
+# print("英文分詞2", parser.removeStopWords(wordlist))
