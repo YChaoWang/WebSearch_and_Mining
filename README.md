@@ -50,6 +50,7 @@ TF Weighting (Raw TF in course PPT) + Cosine Similarity
 TF-IDF Weighting (Raw TF in course PPT) + Cosine Similarity
 TF Weighting (Raw TF in course PPT) + Euclidean Distance
 TF-IDF Weighting (Raw TF in course PPT) + Euclidean Distance
+
 Task2 會看到--Eng_query <EnglishQuery> 的結果
 
 Task3 會看到--Chi_query <ChineseQuery> 的結果
