@@ -51,13 +51,18 @@ TF-IDF Weighting (Raw TF in course PPT) + Cosine Similarity
 TF Weighting (Raw TF in course PPT) + Euclidean Distance
 TF-IDF Weighting (Raw TF in course PPT) + Euclidean Distance
 
-Task2 會看到--Eng_query <EnglishQuery> 的結果
+Task2 會看到:
+--Eng_query <EnglishQuery> 的結果
 
-Task3 會看到--Chi_query <ChineseQuery> 的結果
+Task3 會看到:
+--Chi_query <ChineseQuery> 的結果
 
 Task4 會看到以下:
+
 MRR@10
+
 MAP@10
+
 Recall@10
 
 
