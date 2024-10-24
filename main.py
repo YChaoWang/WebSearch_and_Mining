@@ -83,14 +83,14 @@ def main():
 
     # 設定預設的新聞資料夾
     parser.add_argument(
-        "--eng_news_dir",
+        "--Eng_news_dir",
         type=str,
         default="./EnglishNews",  # 預設的英文新聞資料夾路徑
         help="Directory containing the English news files.",
     )
 
     parser.add_argument(
-        "--chi_news_dir",
+        "--Chi_news_dir",
         type=str,
         default="./ChineseNews",  # 預設的中文新聞資料夾路徑
         help="Directory containing the Chinese news files.",
@@ -123,7 +123,7 @@ def main():
 
     # Load documents
     print("Task 1: VSM with Different Weighting Schemes & Similarity Metrics")
-    eng_documents, eng_file_paths = load_documents(args.eng_news_dir)
+    eng_documents, eng_file_paths = load_documents(args.Eng_news_dir)
 
     # 建立 VectorSpace 物件並建構向量空間
     print("Building Task 1 vector space...")
@@ -141,7 +141,7 @@ def main():
     print(
         "Task 3: VSM with Different Scheme & Similarity Metrics in Chinese and English"
     )
-    chi_documents, chi_file_paths = load_documents(args.chi_news_dir)
+    chi_documents, chi_file_paths = load_documents(args.Chi_news_dir)
 
     print("Building Task 3 vector space...")
     chiVectorSpace = VectorSpace(chi_documents, language="chinese")
