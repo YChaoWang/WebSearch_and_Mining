@@ -10,6 +10,26 @@ Github repo👉<https://github.com/YChaoWang/WebSearch_and_WebMining.git>
 - **Relevance_feedback.py**: 實現Task2，專注於Relevance Feedback機制。
 - **Evaluation.py**: 實現Task4，評估信息檢索（IR）系統。
 - **Parser.py**: 處理分詞，包括 NLTK 分詞和Task3的中文分詞。
+```
+./
+├── directory_tree.py
+├── requirements.txt
+├── util.py
+├── Evaluation.py
+├── Relevance_feedback.py
+├── english.stop
+├── Parser.py
+├── VectorSpace.py
+├── main.py
+├── tfidf.py
+└── PorterStemmer.py
+├── EnglishNews/
+├── __pycache__/
+├── smaller_dataset/
+│   ├── queries/
+│   ├── collections/
+├── ChineseNews/
+```
 
 ### 先決條件
 - Python 3.6 或更高版本
