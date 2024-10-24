@@ -1,4 +1,4 @@
-# WebSearch_and_WebMining Project1
+# WebSearch_and_Mining Project1
 Github repo👉<https://github.com/YChaoWang/WebSearch_and_WebMining.git>
 
 ## 專案描述
