@@ -1,4 +1,5 @@
-# WebSearch_and_WebMining
+# WebSearch_and_WebMining Project1
+Github repo👉<https://github.com/YChaoWang/WebSearch_and_WebMining.git>
 
 ## 專案描述
 **WebSearch_and_WebMining** 是一個文檔搜索和評估系統，旨在根據用戶查詢方便地檢索和評估相關文檔。該專案利用向量空間模型和各種相似性度量方法，在新聞文章集合中執行搜索。
