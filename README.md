@@ -10,6 +10,11 @@ Github repo👉<https://github.com/YChaoWang/WebSearch_and_WebMining.git>
 - **Relevance_feedback.py**: 實現Task2，專注於Relevance Feedback機制。
 - **Evaluation.py**: 實現Task4，評估信息檢索（IR）系統。
 - **Parser.py**: 處理分詞，包括 NLTK 分詞和Task3的中文分詞。
+- **EnglishNews**: Task 1 & Task 2的 documents
+- **ChineseNews**: Task 3 的 documents
+- **smaller_dataset**: Task4 的 documents
+- **english.stop**: English Stop Words
+### 檔案結構
 ```
 ./
 ├── directory_tree.py
