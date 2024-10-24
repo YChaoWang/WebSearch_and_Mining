@@ -1,0 +1,10 @@
+# 忽略 Python 編譯後的檔案
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 忽略其他不必要的檔案
+.env
+.vscode/
+.idea/
